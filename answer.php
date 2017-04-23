@@ -9,6 +9,9 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
+<?php
+  include('nav.php');
+?>
 <body>
   <div class="row">
     <div class="col-md-8">
@@ -22,8 +25,8 @@
         while($row = $result->fetch_assoc()) {
           ?>
         <tr>
-          <td><?php echo $row['id'] ?></td>
-          <td><?php echo $row['question'] ?></td>
+          <td></td>
+          <td><h3><b>QUESTION : <?php echo $row['question'] ?></b></h3></td>
         <tr>
           <?php } ?>
       </table>
@@ -40,19 +43,21 @@
         while($row = $result->fetch_assoc()) {
           ?>
         <tr>
-          <td><?php echo $row['q_id'] ?></td>
           <td><?php echo $row['answer'] ?></td>
         </br>
         <tr>
           <?php } ?>
           <tr>
             <td>
-              <form method="post" action="postAnswer.php">
-                <input type="text" value="<?php $id = $_GET['id']; echo $id ?>" name="id">
-                <input type="text" class="form-control" placeholder="Text input" name="answer">
-                <center><button class="btn btn-default" name="submit">Post an Answer</button>
-                <center>
+                <form method="POST" action="postAnswer.php">
+                <input class="form-control" name="qi" type="hidden" value="<?php echo $id?>" placeholder="Text input">
+                <input class="form-control" type="text" name="ans" placeholder="Text input">
+                <button class="btn btn-success" aria-hidden="true" name="submit">Reply Answer</button>
+
               </form>
+
+
+
               </td>
           </tr>
       </table>

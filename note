@@ -31,3 +31,6 @@ swal({
 
 
 </script>
+
+
+<button class="btn btn-success" aria-hidden="true" onclick="location.href='postAnswer.php?id=<?php echo $id ?>&&<?php echo $ans?>'">Reply Answer</button>
